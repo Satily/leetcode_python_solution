@@ -14,6 +14,6 @@ def ds_print(structure):
         pass
 
     if transformed_structure is None:
-        raise RuntimeError("Unsupported type. %s." % t)
+        raise RuntimeError("Unsupported type. %s." % transformed_structure)
     else:
         print(transformed_structure)
