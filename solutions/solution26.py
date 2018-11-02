@@ -4,18 +4,26 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-        ln = len(nums)
-        if ln == 0:
+        if len(nums) == 0:
             return 0
-        result = 1
-        last = nums[0]
-        for i in range(1, ln):
-            if nums[i] != last:
-                last = nums[i]
-                result += 1
-        return result
+        q = 0
+        for p in range(0, len(nums)):
+            if nums[p] != nums[q]:
+                q += 1
+                nums[q] = nums[p]
+        pop_len = len(nums) - q - 1
+        for _ in range(0, pop_len):
+            nums.pop()
+        return q + 1
 
 
 if __name__ == "__main__":
-    print(Solution().removeDuplicates([1, 1, 2]))
-    print(Solution().removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]))
+    nums_list = [
+        [1, 1, 2],
+        [0, 0, 1, 1, 1, 2, 2, 3, 3, 4],
+        [],
+    ]
+    for line in nums_list:
+        nums = line.copy()
+        result = Solution().removeDuplicates(nums)
+        print(nums, result)
