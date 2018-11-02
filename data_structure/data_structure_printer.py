@@ -10,10 +10,4 @@ def ds_print(structure):
         transformed_structure = flatten_link_list(structure)
     elif isinstance(structure, TreeNode):
         transformed_structure = flatten_binary_tree(structure)
-    else:
-        pass
-
-    if transformed_structure is None:
-        raise RuntimeError("Unsupported type. %s." % transformed_structure)
-    else:
-        print(transformed_structure)
+    print(transformed_structure)
