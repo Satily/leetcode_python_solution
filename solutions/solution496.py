@@ -9,13 +9,13 @@ class Solution:
         stack = [-1]
         result = {}
         for num in reversed(nums2):
-            while len(stack) != 0 and stack[-1:][0] <= num:
+            while len(stack) != 0 and stack[-1] <= num:
                 stack.pop()
             if num in nums1_map:
                 if len(stack) == 0:
                     result[nums1_map[num]] = -1
                 else:
-                    result[nums1_map[num]] = stack[-1:][0]
+                    result[nums1_map[num]] = stack[-1]
             stack.append(num)
         return [result[index] for index in sorted(result.keys())]
 
