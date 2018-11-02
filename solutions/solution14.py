@@ -14,9 +14,7 @@ class Solution:
                 min_len = len(s)
                 min_len_index = i
         # swap it to first
-        t = strs[0]
-        strs[0] = strs[min_len_index]
-        strs[min_len_index] = t
+        strs[0], strs[min_len_index] = strs[min_len_index], strs[0]
         # find prefix
         for i in range(0, min_len):
             o = strs[0][i]
