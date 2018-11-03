@@ -24,5 +24,5 @@ class Solution:
 
 
 if __name__ == "__main__":
-    # print(Solution().countAndSay(1))
+    print(Solution().countAndSay(1))
     print(Solution().countAndSay(4))
