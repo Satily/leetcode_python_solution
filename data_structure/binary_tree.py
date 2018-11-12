@@ -35,4 +35,16 @@ def build_binary_tree(t):
 
 
 def flatten_binary_tree(binary_tree, with_none=False):
-    pass
+    if binary_tree is not None and not isinstance(binary_tree, TreeNode):
+        raise RuntimeError("Unsupported type. %s." % binary_tree)
+    if binary_tree is None:
+        return None
+    result = []
+    flatten_left_node = flatten_binary_tree(binary_tree.left, with_none=with_none)
+    if flatten_left_node is not None or with_none:
+        result.append(flatten_left_node)
+    result.append(binary_tree.val)
+    flatten_right_node = flatten_binary_tree(binary_tree.right, with_none=with_none)
+    if flatten_right_node is not None or with_none:
+        result.append(flatten_right_node)
+    return tuple(result)
