@@ -1,15 +1,3 @@
-from queue import PriorityQueue
-
-
-class HeapItem(object):
-    def __init__(self, value, last_index):
-        self.value = value
-        self.last_index = last_index
-
-    def __lt__(self, other):
-        return self.value < other.value
-
-
 class Solution:
     def nthSuperUglyNumber(self, n, primes):
         """
@@ -17,13 +5,17 @@ class Solution:
         :type primes: List[int]
         :rtype: int
         """
-        heap = PriorityQueue()
-        heap.put(HeapItem(1, 0))
-        for time in range(n - 1):
-            current = heap.get()
-            for prime_index in range(current.last_index, len(primes)):
-                heap.put(HeapItem(current.value * primes[prime_index], prime_index))
-        return heap.get().value
+        indices = [0] * len(primes)
+        ugly_numbers = [1]
+        next_numbers = primes.copy()
+        for _ in range(n):
+            min_num = min(next_numbers)
+            ugly_numbers.append(min_num)
+            for index in range(len(indices)):
+                if next_numbers[index] == min_num:
+                    indices[index] += 1
+                    next_numbers[index] = primes[index] * ugly_numbers[indices[index]]
+        return ugly_numbers[n - 1]
 
 
 if __name__ == "__main__":
