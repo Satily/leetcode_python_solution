@@ -23,7 +23,6 @@ class Solution:
         return True
 
 
-
 if __name__ == "__main__":
     print(Solution().isValidBST(build_binary_tree(((1,), 0))))
     print(Solution().isValidBST(build_binary_tree(((1,), 1))))
