@@ -1,3 +1,4 @@
+# Full of inspiration!
 class Solution:
     def reachingPoints(self, sx, sy, tx, ty):
         """
