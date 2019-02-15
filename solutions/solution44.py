@@ -22,8 +22,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    print(Solution().isMatch("", "?"))
-    print(Solution().isMatch("b", "??"))
     print(Solution().isMatch("aa", "a"))
     print(Solution().isMatch("aa", "*"))
     print(Solution().isMatch("cb", "?a"))
