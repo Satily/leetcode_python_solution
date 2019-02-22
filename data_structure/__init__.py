@@ -3,3 +3,4 @@ from data_structure.binary_tree import TreeNode, build_binary_tree, flatten_bina
 from data_structure.data_structure_printer import ds_print
 from data_structure.interval import Interval, flatten_interval
 from data_structure.iterator import Iterator
+from data_structure.tree import Node
