@@ -9,10 +9,8 @@ class Solution:
                 return [None]
             result = []
             for index in range(start, end + 1):
-                left_trees = generate_tree_with_range(start, index - 1)
-                right_trees = generate_tree_with_range(index + 1, end)
-                for left_tree in left_trees:
-                    for right_tree in right_trees:
+                for left_tree in generate_tree_with_range(start, index - 1):
+                    for right_tree in generate_tree_with_range(index + 1, end):
                         this_node = TreeNode(index)
                         this_node.left, this_node.right = left_tree, right_tree
                         result.append(this_node)
