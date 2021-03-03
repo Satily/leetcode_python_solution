@@ -2,7 +2,7 @@ class Solution:
     def fractionToDecimal(self, numerator: int, denominator: int) -> str:
         if numerator == 0:
             return '0'
-        if (numerator < 0) ^ (denominator < 0):
+        if numerator ^ denominator < 0:
             result = '-'
         else:
             result = ''
