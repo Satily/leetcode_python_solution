@@ -1,3 +1,6 @@
+from itertools import accumulate
+
+
 class Solution:
     def subarraySum(self, nums, k):
         """
@@ -5,24 +8,22 @@ class Solution:
         :type k: int
         :rtype: int
         """
-        if len(nums) == 0:
-            return 0
-        left, right = 0, 1
-        s, r = nums[0], 0
-        while (right != len(nums) or s >= k) and left != len(nums):
-            if s == k:
-                r += 1
-                s -= nums[left]
-                left += 1
-            elif s > k or right == len(nums):
-                s -= nums[left]
-                left += 1
-            else:
-                s += nums[right]
-                right += 1
-        return r
+
+        sums = list(accumulate(nums))
+        sums_map = {0: 1}
+        result = 0
+        for s in sums:
+            d = s - k
+            sums_map.setdefault(d, 0)
+            result += sums_map.get(d)
+            sums_map.setdefault(s, 0)
+            sums_map[s] += 1
+
+        return result
 
 
 if __name__ == "__main__":
-    print(Solution().subarraySum([1], 0))
+    # print(Solution().subarraySum([1], 0))
+    # print(Solution().subarraySum([1, 1, 1], 2))
+    # print(Solution().subarraySum([-1, -1, 1], 0))
     print(Solution().subarraySum([1, 1, 1], 2))
