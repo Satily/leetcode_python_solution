@@ -23,7 +23,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    # print(Solution().subarraySum([1], 0))
-    # print(Solution().subarraySum([1, 1, 1], 2))
-    # print(Solution().subarraySum([-1, -1, 1], 0))
+    print(Solution().subarraySum([1], 0))
+    print(Solution().subarraySum([1, 1, 1], 2))
+    print(Solution().subarraySum([-1, -1, 1], 0))
     print(Solution().subarraySum([1, 1, 1], 2))
