@@ -23,6 +23,6 @@ class Solution:
 
 
 if __name__ == '__main__':
-    # print(Solution().searchRange([5, 7, 7, 8, 8, 10], 8))
-    # print(Solution().searchRange([5, 7, 7, 8, 8, 10], 6))
+    print(Solution().searchRange([5, 7, 7, 8, 8, 10], 8))
+    print(Solution().searchRange([5, 7, 7, 8, 8, 10], 6))
     print(Solution().searchRange([], 0))
